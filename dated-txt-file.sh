@@ -13,5 +13,12 @@ if [ ! -d "$LOCATION" ]; then
     exit 1
 fi
 
-touch "$LOCATION$(date +'%y-%m-%d').txt" 
+DATE="$(date +'%y-%m-%d').txt"
 
+touch "$LOCATION$DATE" 
+
+if [ -f "$LOCATION$DATE" ]; then
+    echo "$(date) : File was created. $LOCATION$DATE"
+else
+    echo "$(date) : File was not created."    
+fi 
