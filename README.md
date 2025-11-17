@@ -1,1 +1,1 @@
-Some shell scripts I've made when messing with my home network. Placed here as backup.
+Some shell scripts I've made when messing with my home server. Placed here as backup.
