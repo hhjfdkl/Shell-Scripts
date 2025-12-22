@@ -22,22 +22,22 @@ LANDING=$input_directory"Monthly_Summary/"
 # Loop through the files in order of date (yy-mm-dd format)
 for file in $(ls ${input_directory}*.txt | sort); do
 
-
-
     # Extract the base filename (e.g., "yy-mm-dd.txt")
     filename=$(basename "$file")
 
     # Check if the filename matches the yy-mm-dd format (using regex)
     if [[ "$filename" =~ ^[0-9]{2}-[0-9]{2}-[0-9]{2}\.txt$ ]]; then
-            if [ ! -d "$ARCHIVE" ]; then
-                mkdir "$ARCHIVE"
-                echo "Created $ARCHIVE"
-            fi
 
-            if [ ! -d "$LANDING" ]; then
-                mkdir "$LANDING"
-                echo "Created $LANDING"
-            fi
+        if [ ! -d "$ARCHIVE" ]; then
+            mkdir "$ARCHIVE"
+            echo "Created $ARCHIVE"
+        fi
+
+        if [ ! -d "$LANDING" ]; then
+            mkdir "$LANDING"
+            echo "Created $LANDING"
+        fi
+
         # Extract the year and month from the filename (yy-mm-dd.txt)
         year_month=$(echo "$filename" | cut -d'-' -f1,2)
         year_month="${LANDING}${year_month}_monthly-summary.txt"
