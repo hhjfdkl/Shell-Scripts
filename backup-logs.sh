@@ -16,6 +16,7 @@ if [[ ! -f "$src" ]]; then
 fi
 
 dest="$2"
+
 mkdir -p $dest
 srcBase="$(basename "$src")"
 name="${srcBase%.*}" # removes file extension
@@ -26,3 +27,5 @@ mv "$src" "$dest_path"
 touch "$src"
 chmod 666 "$src"
 chmod 444 "$dest_path"
+
+echo "$(date) : Successfully created backup!"
